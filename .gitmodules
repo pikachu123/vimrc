@@ -1,3 +1,6 @@
 [submodule "bundle/cuteErrorMarker"]
 	path = bundle/cuteErrorMarker
 	url = https://github.com/Twinside/vim-cuteErrorMarker.git
+[submodule "bundle/vim-latex"]
+	path = bundle/vim-latex
+	url = git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex
