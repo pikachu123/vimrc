@@ -1,10 +1,3 @@
-" vgod's vimrc
-" Tsung-Hsiang (Sean) Chang <vgod@vgod.tw>
-" Fork me on GITHUB  https://github.com/vgod/vimrc
-
-" read https://github.com/vgod/vimrc/blob/master/README.md for more info
-
-
 " For pathogen.vim: auto load all plugins in .vim/bundle
 
 let g:pathogen_disabled = []
@@ -217,6 +210,7 @@ fun! IncludeGuard()
 endfun
 
 set tags+=~/cpp
+set tags+=~/.vim/tags/qt4_tag
 " OmniCppComplete
 let OmniCpp_NamespaceSearch = 1
 let OmniCpp_GlobalScopeSearch = 1
@@ -344,3 +338,16 @@ let g:snipMateAllowMatchingDot = 0
 
 " --- coffee-script
 au BufWritePost *.coffee silent CoffeeMake! -b | cwindow | redraw! " recompile coffee scripts on write
+
+"ctags 
+fun! CreateTag(path)
+   execute "!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q ".a:path
+endfun
+
+"python complete
+filetype plugin indent on 
+let Omnipy_MayCompleteDot=1 
+set completeopt+=longest
+set completeopt+=menu
+set wildmenu
+autocmd FileType python set omnifunc=pythoncomplete#Complete
